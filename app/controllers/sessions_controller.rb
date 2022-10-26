@@ -1,9 +1,14 @@
 class SessionsController < ApplicationController
-  def create 
-    @user = User.authenticate(params[:user_name], params[:password])
-    if @user 
+  before_action :authorize, only: [:secret]
+
+  def secret
+  end
+
+  def create
+    @user = User.authenticate(params[:email], params[:password])
+    if @user
       flash[:notice] = "You've signed in."
-      session[:user_id] = "You've signed in!"
+      session[:user_id] = @user.id
       redirect_to "/"
     else
       flash[:alert] = "There was a problem signing in. Please try again."
