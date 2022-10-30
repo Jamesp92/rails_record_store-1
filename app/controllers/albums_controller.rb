@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
-
+  before_action :authorize, except: [:index]
+  
   def index
     @albums = Album.all
     render :index
