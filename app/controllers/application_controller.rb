@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def authorize_admin
+    if !current_user.admin
+      flash[:alert] = "You must be an admin to visit this page...dummy!"
+      redirect_to '/'
+    end
+  end
+
 end

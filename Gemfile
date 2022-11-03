@@ -46,6 +46,8 @@ gem "bootstrap-sass", "~> 3.4.1"
 # Use Sass to process CSS
 gem "sassc-rails", ">= 2.1.0"
 
+gem "httparty"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -57,6 +59,7 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'simplecov', require: false
 end
 
 group :development do
